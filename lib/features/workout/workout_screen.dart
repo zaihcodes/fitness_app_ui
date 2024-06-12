@@ -6,6 +6,7 @@ import 'package:fitnees_app_ui/core/utils/widgets/difficulty_card_one.dart';
 import 'package:fitnees_app_ui/features/workout/widgets/w_custom_appbar.dart';
 import 'package:fitnees_app_ui/features/workout/widgets/workout_card.dart';
 import 'package:fitnees_app_ui/features/workout/widgets/workout_menu.dart';
+import 'package:fitnees_app_ui/features/workout/workout_schedule_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/data/workout_data.dart';
@@ -58,7 +59,13 @@ class WorkoutScreen extends StatelessWidget {
               CustomSectionTitle(
                 title: 'Workout schedule',
                 hasSeeMore: true,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WorkoutScheduleScreen()),
+                  );
+                },
               ),
               SizedBox(
                 height: AppSpacing.small,

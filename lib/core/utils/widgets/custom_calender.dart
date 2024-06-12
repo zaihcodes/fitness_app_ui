@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class CustomCalender extends StatefulWidget {
-  const CustomCalender({super.key});
-
+  const CustomCalender({this.trainingDays = const [1, 3, 5], super.key});
+  final List<int> trainingDays; // Default training days (Mon, Wed, Fri)
   @override
   State<CustomCalender> createState() => _CustomCalenderState();
 }
@@ -16,7 +16,6 @@ class _CustomCalenderState extends State<CustomCalender> {
 
   DateTime _currentMonth = DateTime.now();
   bool selectedcurrentyear = false;
-  List<int> _trainingDays = [1, 3, 5]; // Default training days (Mon, Wed, Fri)
   @override
   void initState() {
     super.initState();
@@ -190,7 +189,7 @@ class _CustomCalenderState extends State<CustomCalender> {
                           : Colors.black),
                 ),
                 date.isAfter(DateTime.now().add(const Duration(days: -1))) &&
-                        _trainingDays.contains(weekDay)
+                        widget.trainingDays.contains(weekDay)
                     ? Expanded(
                         flex: 0,
                         child: SizedBox(
