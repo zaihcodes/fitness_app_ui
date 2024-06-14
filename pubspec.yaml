@@ -65,6 +65,7 @@ flutter:
     - assets/images/
     - assets/images/gender/
     - assets/images/bodyParameters/
+    - assets/images/exercises/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
