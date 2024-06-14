@@ -7,9 +7,39 @@ import 'package:flutter/material.dart';
 
 import 'menu_pages/workout_dashboard_page.dart';
 
-class WorkoutScreen extends StatelessWidget {
+class WorkoutScreen extends StatefulWidget {
   const WorkoutScreen({required this.level, super.key});
   final DifficultyLevelModel level;
+
+  @override
+  State<WorkoutScreen> createState() => _WorkoutScreenState();
+}
+
+class _WorkoutScreenState extends State<WorkoutScreen> {
+  late PageController _pageController;
+  int _currentPageIndex = 0;
+
+  void _onMenuItemChanges(index) {
+    setState(() {
+      _currentPageIndex = index;
+    });
+    _pageController.animateToPage(_currentPageIndex,
+        duration: Duration(milliseconds: 500), curve: Curves.easeInOut);
+  }
+
+  void _onPageChange(index) {
+    setState(() {
+      _currentPageIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // TODO: implement initState
+    _pageController = PageController(initialPage: _currentPageIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -24,7 +54,10 @@ class WorkoutScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: WorkoutMenu(),
+            child: WorkoutMenu(
+              currentPageIndex: _currentPageIndex,
+              onItemSelected: _onMenuItemChanges,
+            ),
           ),
           SizedBox(
             height: 20,
@@ -32,10 +65,12 @@ class WorkoutScreen extends StatelessWidget {
           // Menu Page view
           Expanded(
             child: PageView(
+              controller: _pageController,
+              onPageChanged: _onPageChange,
               children: [
-                WorkoutDashboardPage(level: level),
+                WorkoutDashboardPage(level: widget.level),
                 //   Workouts
-                WorkoutWorkoutsPage(level: level),
+                WorkoutWorkoutsPage(level: widget.level),
                 // WorkoutDietPage(),
                 const PageNeedSubscribe(
                   icon: Icons.dinner_dining_sharp,
