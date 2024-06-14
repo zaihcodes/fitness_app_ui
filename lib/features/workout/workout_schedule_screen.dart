@@ -177,7 +177,9 @@ class _WorkoutScheduleScreenState extends State<WorkoutScheduleScreen> {
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
-              color: theme.colorScheme.onSurface.withOpacity(0.8),
+              color: trainingDays.contains(dayIndex) && !autoWorkoutPosition
+                  ? theme.colorScheme.onPrimary
+                  : theme.colorScheme.onTertiaryContainer,
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:fitnees_app_ui/core/constants/app_spacing.dart';
 import 'package:fitnees_app_ui/core/models/workout_model.dart';
+import 'package:fitnees_app_ui/features/workout/workout_exercises_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,60 +12,70 @@ class WorkoutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      padding: EdgeInsets.all(AppSpacing.medium),
-      decoration: BoxDecoration(
-        color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: theme.colorScheme.shadow.withOpacity(0.5),
-            spreadRadius: 0,
-            blurRadius: 3,
-            offset: Offset(2, 1),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          workout.locked
-              ? buildWorkoutLockedProgress(theme)
-              : buildWorkoutCircularProgress(theme),
-          SizedBox(
-            width: AppSpacing.medium,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${workout.day} workout day',
-                  style: TextStyle(
-                    color: theme.colorScheme.onSurface.withOpacity(0.5),
-                    fontSize: 15.sp,
-                  ),
-                ),
-                Text(
-                  workout.bodyParts.join('+'),
-                  style: TextStyle(
-                    color: theme.colorScheme.onSurface,
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                )
-              ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => WorkoutExercisesScreen(workout: workout)),
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(AppSpacing.medium),
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: theme.colorScheme.shadow.withOpacity(0.5),
+              spreadRadius: 0,
+              blurRadius: 3,
+              offset: Offset(2, 1),
             ),
-          ),
-          Container(
-            height: 12.w,
-            width: 12.w,
-            decoration: BoxDecoration(
-                color: workout.isActive
-                    ? theme.colorScheme.primary
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(20)),
-          )
-        ],
+          ],
+        ),
+        child: Row(
+          children: [
+            workout.locked
+                ? buildWorkoutLockedProgress(theme)
+                : buildWorkoutCircularProgress(theme),
+            SizedBox(
+              width: AppSpacing.medium,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${workout.day} workout day',
+                    style: TextStyle(
+                      color: theme.colorScheme.onSurface.withOpacity(0.5),
+                      fontSize: 15.sp,
+                    ),
+                  ),
+                  Text(
+                    workout.bodyParts.join('+'),
+                    style: TextStyle(
+                      color: theme.colorScheme.onSurface,
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 12.w,
+              width: 12.w,
+              decoration: BoxDecoration(
+                  color: workout.isActive
+                      ? theme.colorScheme.primary
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(20)),
+            )
+          ],
+        ),
       ),
     );
   }

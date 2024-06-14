@@ -163,7 +163,7 @@ class _CustomCalenderState extends State<CustomCalender> {
             children: [
               Text(
                 previousMonthDay.toString(),
-                style: const TextStyle(color: Colors.grey),
+                style: TextStyle(color: theme.colorScheme.tertiary),
               ),
             ],
           );
@@ -182,11 +182,12 @@ class _CustomCalenderState extends State<CustomCalender> {
                 Text(
                   text,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
-                      color: date.day == DateTime.now().day
-                          ? theme.colorScheme.primary
-                          : Colors.black),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.sp,
+                    color: date.day == DateTime.now().day
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurface,
+                  ),
                 ),
                 date.isAfter(DateTime.now().add(const Duration(days: -1))) &&
                         widget.trainingDays.contains(weekDay)

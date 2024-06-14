@@ -1,4 +1,3 @@
-import 'package:fitnees_app_ui/features/auth/screens/gender_screen.dart';
 import 'package:fitnees_app_ui/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +15,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.greenAccent,
+              brightness: Brightness.light,
+            ),
             useMaterial3: true),
         home: const OnBoardingScreen(),
       ),

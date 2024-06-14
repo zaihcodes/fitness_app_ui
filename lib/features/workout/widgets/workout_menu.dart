@@ -50,14 +50,14 @@ class _WorkoutMenuState extends State<WorkoutMenu> {
           borderRadius: BorderRadius.circular(50),
           color: widget.currentPageIndex == index
               ? theme.colorScheme.primary
-              : Colors.grey.shade300,
+              : theme.colorScheme.tertiaryContainer,
         ),
         child: Text(
           menuItem,
           style: TextStyle(
             color: widget.currentPageIndex == index
                 ? theme.colorScheme.onPrimary
-                : theme.colorScheme.primary,
+                : theme.colorScheme.onTertiaryContainer,
           ),
         ),
       ),
