@@ -2,6 +2,7 @@ import 'package:fitnees_app_ui/core/models/workout_model.dart';
 import 'package:fitnees_app_ui/core/utils/widgets/custom_button.dart';
 import 'package:fitnees_app_ui/features/workout/widgets/exercises_card.dart';
 import 'package:fitnees_app_ui/features/workout/widgets/workout_card.dart';
+import 'package:fitnees_app_ui/features/workout/workout_single_exercise.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,6 +39,13 @@ class WorkoutExercisesScreen extends StatelessWidget {
                   children: List.generate(fakExercises.length, (index) {
                     final exercise = fakExercises[index];
                     return ExercisesCard(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Workout_singleExercise()),
+                          );
+                        },
                         exercises: exercise['exercise'],
                         info: exercise['info']);
                   }),
