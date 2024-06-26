@@ -2,7 +2,7 @@ import 'package:fitnees_app_ui/core/models/difficulty_level_model.dart';
 import 'package:fitnees_app_ui/core/utils/widgets/choice_card_widget.dart';
 import 'package:fitnees_app_ui/core/utils/widgets/custom_app_bar.dart';
 import 'package:fitnees_app_ui/core/utils/widgets/custom_button.dart';
-import 'package:fitnees_app_ui/features/workout/workout_screen.dart';
+import 'package:fitnees_app_ui/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -52,10 +52,14 @@ class LevelInfoScreen extends StatelessWidget {
               CustomButton(
                 text: 'ADD',
                 func: () {
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => WorkoutScreen(level: level)),);
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => WorkoutScreen(level: level)));
+                    context,
+                    MaterialPageRoute(builder: (context) => MainScreen()),
+                  );
                 },
                 bgColor: theme.colorScheme.primary,
                 textColor: theme.colorScheme.onPrimary,

@@ -2,8 +2,8 @@ import 'package:fitnees_app_ui/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Workout_singleExercise extends StatelessWidget {
-  const Workout_singleExercise({super.key});
+class WorkoutSingleExerciseScreen extends StatelessWidget {
+  const WorkoutSingleExerciseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
