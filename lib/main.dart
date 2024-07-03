@@ -1,4 +1,4 @@
-import 'package:fitnees_app_ui/features/onboarding/onboarding_screen.dart';
+import 'package:fitnees_app_ui/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.light,
             ),
             useMaterial3: true),
-        home: const OnBoardingScreen(),
+        // home: const OnBoardingScreen()
+        home: const MainScreen(),
       ),
     );
   }

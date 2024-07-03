@@ -6,6 +6,7 @@ import '../../../core/models/difficulty_level_model.dart';
 import '../../../core/utils/widgets/custom_calender.dart';
 import '../../../core/utils/widgets/custom_section_title.dart';
 import '../../../core/utils/widgets/difficulty_card_one.dart';
+import '../widgets/workout_analytics.dart';
 import '../widgets/workout_card.dart';
 import '../workout_schedule_screen.dart';
 
@@ -60,6 +61,7 @@ class WorkoutDashboardPage extends StatelessWidget {
             SizedBox(
               height: AppSpacing.medium,
             ),
+            WorkoutAnalytics(),
           ],
         ),
       ),

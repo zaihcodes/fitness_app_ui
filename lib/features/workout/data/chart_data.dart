@@ -17,15 +17,15 @@ class ChartData {
   ];
 
   static List<ChartDataModel> weekData = [
-    ChartDataModel(title: 'Back', percent: 23, color: Colors.green),
-    ChartDataModel(title: 'Abs', percent: 22, color: Colors.red),
+    ChartDataModel(title: 'Back', percent: 15, color: Colors.green),
+    ChartDataModel(title: 'Abs', percent: 2, color: Colors.red),
     ChartDataModel(
-        title: 'Full body workout', percent: 16, color: Colors.orange),
-    ChartDataModel(title: 'Chest', percent: 15, color: Colors.blue),
-    ChartDataModel(title: 'Triceps', percent: 7, color: Colors.cyan),
-    ChartDataModel(title: 'Shoulders', percent: 6, color: Colors.purple),
-    ChartDataModel(title: 'Glutes', percent: 3, color: Colors.brown),
-    ChartDataModel(title: 'Stretching', percent: 2, color: Colors.yellow),
+        title: 'Full body workout', percent: 6, color: Colors.orange),
+    ChartDataModel(title: 'Chest', percent: 3, color: Colors.blue),
+    ChartDataModel(title: 'Triceps', percent: 2, color: Colors.cyan),
+    ChartDataModel(title: 'Shoulders', percent: 22, color: Colors.purple),
+    ChartDataModel(title: 'Glutes', percent: 7, color: Colors.brown),
+    ChartDataModel(title: 'Stretching', percent: 23, color: Colors.yellow),
   ];
 
   static List<ChartDataModel> monthData = [
