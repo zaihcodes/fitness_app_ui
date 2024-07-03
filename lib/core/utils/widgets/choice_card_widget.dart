@@ -6,11 +6,13 @@ class ChoiceCardWidget extends StatelessWidget {
       {required this.text,
       this.imageUrl = 'assets/images/gender/gender_m.jpg',
       this.func,
+      this.toUperCase = true,
       super.key});
 
   final String text;
   final String imageUrl;
   final VoidCallback? func;
+  final bool toUperCase;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class ChoiceCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  text.toUpperCase(),
+                  toUperCase ? text.toUpperCase() : text,
                   style: TextStyle(
                     fontSize: 18.sp,
                     color: Colors.white,

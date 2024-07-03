@@ -2,6 +2,8 @@ import 'package:fitnees_app_ui/core/data/difficulty_level_data.dart';
 import 'package:fitnees_app_ui/features/workout/workout_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'features/hendbook/handbook_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -20,9 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     const Center(
       child: Text('Messages'),
     ),
-    const Center(
-      child: Text('Handbook'),
-    ),
+    HandbookScreen(),
     const Center(
       child: Text('More'),
     ),

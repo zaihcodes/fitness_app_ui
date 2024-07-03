@@ -53,7 +53,7 @@ class _WorkoutAnalyticsState extends State<WorkoutAnalytics> {
               scrollDirection: Axis.horizontal,
               itemCount: _analyticsFilter.length,
               itemBuilder: (context, index) {
-                return analytics_filter_item(
+                return analyticsFilterItem(
                     index: index,
                     theme: theme,
                     menuItem: _analyticsFilter[index]);
@@ -124,7 +124,7 @@ class _WorkoutAnalyticsState extends State<WorkoutAnalytics> {
         color: color,
         radius: 70,
         titlePositionPercentageOffset: 1.3,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
           color: Colors.black,
@@ -138,7 +138,7 @@ class _WorkoutAnalyticsState extends State<WorkoutAnalytics> {
           ),
           child: Text(
             title!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
               color: Colors.black,
@@ -147,7 +147,7 @@ class _WorkoutAnalyticsState extends State<WorkoutAnalytics> {
         ));
   }
 
-  GestureDetector analytics_filter_item({
+  GestureDetector analyticsFilterItem({
     required int index,
     required ThemeData theme,
     required String menuItem,
