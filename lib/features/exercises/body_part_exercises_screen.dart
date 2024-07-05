@@ -1,30 +1,39 @@
-import 'package:fitnees_app_ui/features/exercises/body_part_exercises_screen.dart';
+import 'package:fitnees_app_ui/features/exercises/widgets/exerciese_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/exerciese_app_bar.dart';
-
-class ExercisesScreen extends StatefulWidget {
-  const ExercisesScreen({super.key});
+class BodyPartExercisesScreen extends StatefulWidget {
+  const BodyPartExercisesScreen({super.key});
 
   @override
-  State<ExercisesScreen> createState() => _ExercisesScreenState();
+  State<BodyPartExercisesScreen> createState() =>
+      _BodyPartExercisesScreenState();
 }
 
-class _ExercisesScreenState extends State<ExercisesScreen> {
-  final List<BodyPart> bodyParts = [
-    const BodyPart(part: 'Chest', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Back', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Legs', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Gluteus', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Deltoids', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Biceps', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Triceps', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Foream', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Abs', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(
-        part: 'Functional workout', imgPath: 'assets/images/gym_training.jpg'),
+class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
+  List<String> exercises = [
+    "Bench Press",
+    "Squats",
+    "Deadlift",
+    "Pull-ups",
+    "Push-ups",
+    "Bicep Curls",
+    "Tricep Dips",
+    "Shoulder Press",
+    "Leg Press",
+    "Lunges",
+    "Plank",
+    "Sit-ups",
+    "Chest Fly",
+    "Lat Pulldown",
+    "Leg Curls",
+    "Leg Extension",
+    "Seated Row",
+    "Calf Raises",
+    "Russian Twists",
+    "Mountain Climbers"
   ];
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -55,17 +64,9 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: bodyParts.length,
+                itemCount: exercises.length,
                 itemBuilder: (context, index) {
-                  final bodyPart = bodyParts[index];
                   return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BodyPartExercisesScreen()),
-                      );
-                    },
                     child: Padding(
                       padding: EdgeInsets.all(10.w),
                       child: Row(
@@ -76,14 +77,15 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 image: DecorationImage(
-                                  image: AssetImage(bodyPart.imgPath),
+                                  image: AssetImage(
+                                      'assets/images/gym_training.jpg'),
                                   fit: BoxFit.cover,
                                 )),
                           ),
                           SizedBox(width: 20.w),
                           Expanded(
                             child: Text(
-                              bodyPart.part,
+                              exercises[index],
                               style: theme.textTheme.titleLarge,
                             ),
                           ),
@@ -101,12 +103,12 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
   }
 }
 
-class BodyPart {
-  final String part;
+class BodyPartExercises {
+  final String exercise;
   final String imgPath;
 
-  const BodyPart({
-    required this.part,
-    required this.imgPath,
+  const BodyPartExercises({
+    required this.exercise,
+    this.imgPath = 'assets/images/gym_training.jpg',
   });
 }
