@@ -2,6 +2,7 @@ import 'package:fitnees_app_ui/features/exercises/body_part_exercises_screen.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../core/data/exercieses_data.dart';
 import 'widgets/exerciese_app_bar.dart';
 
 class ExercisesScreen extends StatefulWidget {
@@ -12,19 +13,6 @@ class ExercisesScreen extends StatefulWidget {
 }
 
 class _ExercisesScreenState extends State<ExercisesScreen> {
-  final List<BodyPart> bodyParts = [
-    const BodyPart(part: 'Chest', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Back', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Legs', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Gluteus', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Deltoids', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Biceps', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Triceps', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Foream', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(part: 'Abs', imgPath: 'assets/images/gym_training.jpg'),
-    const BodyPart(
-        part: 'Functional workout', imgPath: 'assets/images/gym_training.jpg'),
-  ];
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -55,9 +43,9 @@ class _ExercisesScreenState extends State<ExercisesScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: bodyParts.length,
+                itemCount: ExercisesData.bodyParts.length,
                 itemBuilder: (context, index) {
-                  final bodyPart = bodyParts[index];
+                  final bodyPart = ExercisesData.bodyParts[index];
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(

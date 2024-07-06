@@ -2,6 +2,8 @@ import 'package:fitnees_app_ui/features/exercises/widgets/exerciese_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../core/data/exercieses_data.dart';
+
 class BodyPartExercisesScreen extends StatefulWidget {
   const BodyPartExercisesScreen({super.key});
 
@@ -11,29 +13,6 @@ class BodyPartExercisesScreen extends StatefulWidget {
 }
 
 class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
-  List<String> exercises = [
-    "Bench Press",
-    "Squats",
-    "Deadlift",
-    "Pull-ups",
-    "Push-ups",
-    "Bicep Curls",
-    "Tricep Dips",
-    "Shoulder Press",
-    "Leg Press",
-    "Lunges",
-    "Plank",
-    "Sit-ups",
-    "Chest Fly",
-    "Lat Pulldown",
-    "Leg Curls",
-    "Leg Extension",
-    "Seated Row",
-    "Calf Raises",
-    "Russian Twists",
-    "Mountain Climbers"
-  ];
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -64,7 +43,7 @@ class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: exercises.length,
+                itemCount: ExercisesData.exercises.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     child: Padding(
@@ -77,7 +56,7 @@ class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 image: DecorationImage(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                       'assets/images/gym_training.jpg'),
                                   fit: BoxFit.cover,
                                 )),
@@ -85,7 +64,7 @@ class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
                           SizedBox(width: 20.w),
                           Expanded(
                             child: Text(
-                              exercises[index],
+                              ExercisesData.exercises[index],
                               style: theme.textTheme.titleLarge,
                             ),
                           ),
@@ -101,14 +80,4 @@ class _BodyPartExercisesScreenState extends State<BodyPartExercisesScreen> {
       ),
     );
   }
-}
-
-class BodyPartExercises {
-  final String exercise;
-  final String imgPath;
-
-  const BodyPartExercises({
-    required this.exercise,
-    this.imgPath = 'assets/images/gym_training.jpg',
-  });
 }
