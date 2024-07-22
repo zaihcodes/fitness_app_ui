@@ -1,4 +1,5 @@
 import 'package:fitnees_app_ui/core/data/difficulty_level_data.dart';
+import 'package:fitnees_app_ui/features/feed/feed_screen.dart';
 import 'package:fitnees_app_ui/features/workout/workout_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +17,11 @@ class _MainScreenState extends State<MainScreen> {
   final level = DifficultyLevelData.data[0];
   final List<Widget> _screens = [
     WorkoutScreen(level: DifficultyLevelData.data[0]),
-    const Center(
-      child: Text('Feed'),
-    ),
+    const FeedScreen(),
     const Center(
       child: Text('Messages'),
     ),
-    HandbookScreen(),
+    const HandbookScreen(),
     const Center(
       child: Text('More'),
     ),
