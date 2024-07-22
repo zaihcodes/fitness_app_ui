@@ -1,9 +1,10 @@
+import 'package:fitnees_app_ui/core/models/feed_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingleFeed extends StatelessWidget {
-  const SingleFeed({super.key});
-
+  const SingleFeed({super.key, required this.feedModel});
+  final FeedModel feedModel;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -23,11 +24,20 @@ class SingleFeed extends StatelessWidget {
       padding: EdgeInsets.only(left: 20, right: 20),
       child: Row(
         children: [
-          buildFeedCountInfo(theme: theme, icon: Icons.thumb_up, count: '11'),
+          buildFeedCountInfo(
+              theme: theme,
+              icon: Icons.thumb_up,
+              count: feedModel.likes.toString()),
           SizedBox(width: 20.w),
-          buildFeedCountInfo(theme: theme, icon: Icons.thumb_down, count: '0'),
+          buildFeedCountInfo(
+              theme: theme,
+              icon: Icons.thumb_down,
+              count: feedModel.disLikes.toString()),
           SizedBox(width: 20.w),
-          buildFeedCountInfo(theme: theme, icon: Icons.comment, count: '2'),
+          buildFeedCountInfo(
+              theme: theme,
+              icon: Icons.comment,
+              count: feedModel.comments.toString()),
           Expanded(
               child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -35,7 +45,7 @@ class SingleFeed extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  Icons.star,
+                  feedModel.isFavorite ? Icons.star : Icons.star_outline,
                   color: Colors.amber,
                 ),
               ),
@@ -74,7 +84,7 @@ class SingleFeed extends StatelessWidget {
     return SizedBox(
       height: 300.sp,
       child: Image.asset(
-        'assets/images/gigafit dubai club 2.jpg',
+        feedModel.feedImgPath,
         fit: BoxFit.cover,
       ),
     );
@@ -94,7 +104,7 @@ class SingleFeed extends StatelessWidget {
                   width: 60,
                   height: 60,
                   child: Image.asset(
-                    'assets/images/gigafit dubai club 1.jpg',
+                    feedModel.profileImg,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -106,14 +116,14 @@ class SingleFeed extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Nico',
+                      feedModel.userName,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18.sp,
                       ),
                     ),
                     SizedBox(height: 5.h),
-                    Text('Yesterday 06:53')
+                    Text(feedModel.time)
                   ],
                 ),
               ),

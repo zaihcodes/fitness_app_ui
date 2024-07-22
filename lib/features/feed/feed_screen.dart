@@ -1,3 +1,4 @@
+import 'package:fitnees_app_ui/core/data/feed_data.dart';
 import 'package:fitnees_app_ui/features/feed/widgets/single_feed.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,8 +25,12 @@ class _FeedScreenState extends State<FeedScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       appBar: buildFeedAppBar(theme),
-      body: ListView(
-        children: [SingleFeed()],
+      body: ListView.separated(
+        itemCount: FeedData.feeds.length,
+        separatorBuilder: (context, index) => SizedBox(height: 20.h),
+        itemBuilder: (context, index) {
+          return SingleFeed(feedModel: FeedData.feeds[index]);
+        },
       ),
     );
   }
@@ -33,6 +38,8 @@ class _FeedScreenState extends State<FeedScreen> {
   AppBar buildFeedAppBar(ThemeData theme) {
     return AppBar(
       backgroundColor: theme.colorScheme.surface,
+      elevation: 0,
+      scrolledUnderElevation: 0,
       centerTitle: true,
       title: DropdownButton<String>(
         value: _selectedChoice,
