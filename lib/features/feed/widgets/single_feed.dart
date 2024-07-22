@@ -8,14 +8,28 @@ class SingleFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Column(
-      children: [
-        buildSingleFeedHeader(),
-        SizedBox(height: 10.h),
-        buildFeedMedia(),
-        SizedBox(height: 10.h),
-        buildFeedLikesComments(theme)
-      ],
+    return Container(
+      decoration: BoxDecoration(color: theme.colorScheme.surface, boxShadow: [
+        BoxShadow(
+          color: theme.colorScheme.shadow.withOpacity(0.2),
+          blurRadius: 4,
+          offset: Offset(0, 2),
+        ),
+        BoxShadow(
+          color: theme.colorScheme.surface,
+          blurRadius: 4,
+          offset: Offset(0, -2),
+        )
+      ]),
+      child: Column(
+        children: [
+          buildSingleFeedHeader(),
+          SizedBox(height: 10.h),
+          buildFeedMedia(),
+          SizedBox(height: 10.h),
+          buildFeedLikesComments(theme)
+        ],
+      ),
     );
   }
 
