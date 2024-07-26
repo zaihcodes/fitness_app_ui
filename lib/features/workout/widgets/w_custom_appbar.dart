@@ -1,6 +1,8 @@
+import 'package:fitnees_app_ui/features/plan/my_plans_screen.dart';
 import 'package:flutter/material.dart';
 
-AppBar WCustomAppbar({required ThemeData theme}) {
+AppBar WCustomAppbar(
+    {required ThemeData theme, required BuildContext context}) {
   return AppBar(
     elevation: 0,
     leading: IconButton(
@@ -19,7 +21,12 @@ AppBar WCustomAppbar({required ThemeData theme}) {
     ),
     actions: [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MyPlansScreen()),
+          );
+        },
         icon: Icon(
           Icons.menu,
           color: theme.colorScheme.onSurface,

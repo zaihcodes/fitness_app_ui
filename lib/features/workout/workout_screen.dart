@@ -45,7 +45,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
-      appBar: WCustomAppbar(theme: theme),
+      appBar: WCustomAppbar(context: context, theme: theme),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

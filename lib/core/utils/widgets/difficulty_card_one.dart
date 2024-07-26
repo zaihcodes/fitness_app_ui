@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../enums/custom_enums.dart';
 
 class DifficultyCardOne extends StatelessWidget {
-  const DifficultyCardOne({required this.level, this.onTap, super.key});
+  const DifficultyCardOne(
+      {required this.level, this.onTap, this.isActive = false, super.key});
 
   final DifficultyLevelModel level;
   final Function()? onTap;
+  final bool isActive;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -113,6 +115,25 @@ class DifficultyCardOne extends StatelessWidget {
               ],
             ),
           ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: isActive
+                ? Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        )),
+                    child: Text(
+                      'ACTIVE',
+                      style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                    ),
+                  )
+                : SizedBox(),
+          )
         ],
       ),
     );
